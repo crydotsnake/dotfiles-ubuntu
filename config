@@ -218,7 +218,7 @@ exec_always feh --bg-fill --no-startup-id /home/username/path/to/your-image.jpg
 exec_always --no-startup-id /home/username/.screenlayout/layout_script.sh
 
 # Pasystray
-exec_always /usr/bin/pasystray
+exec_always --no-startup-id /usr/bin/pasystray
 
 # Run flameshot
-exec_always /usr/bin/flameshot
+exec_always --no-startup-id /usr/bin/flameshot
