@@ -7,3 +7,6 @@ Here you find my configuration files for i3, and i3status.
 > extra packages i use
 - feh (for my background image)
 - xrandr (for managing my monitor layouts)
+
+## Demo
+![Demo](demo.png)
