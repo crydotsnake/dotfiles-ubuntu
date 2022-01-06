@@ -7,3 +7,7 @@ Here you find my configuration files for i3, and i3status.
 - feh (for my background image)
 - ARandR (for managing my monitor layouts)
 - pasystray (volume control applet)
+
+## Demo
+
+![Demo](demo.png)
