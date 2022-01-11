@@ -222,3 +222,6 @@ exec_always --no-startup-id /usr/bin/pasystray
 
 # Run flameshot
 exec_always --no-startup-id /usr/bin/flameshot
+
+# Run rofi
+bindsym $mod+d exec "rofi -modi window,drun,run -show drun -sidebar-mode -terminal termite"
