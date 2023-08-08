@@ -8,6 +8,7 @@ Here you find my configuration files for i3, and i3status.
 - ARandR (for managing my monitor layouts)
 - pasystray (volume control applet)
 - rofi (alternative for dmenu)
+- lxappearance (for changing my cursor theme)
 
 ## Demo
 
