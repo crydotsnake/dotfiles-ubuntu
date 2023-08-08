@@ -10,8 +10,7 @@ if [[ -d "$i3ConfigurationPath" ]]; then
 	echo "Done"
 else 
 	echo "The Path $i3ConfigurationPath doesent exist. Will create it now."
-	mkdir $i3ConfigurationPath
-	cp config $i3ConfigurationPath/config
+	mkdir $i3ConfigurationPath && cp config $i3ConfigurationPath/config
 	echo "Done"
 fi
 
@@ -21,7 +20,6 @@ if [[ -d "$i3StatusConfigurationPath" ]]; then
 	echo "Done"
 else 
 	echo "The Path $i3StatusConfigurationPath doesent exist. Will create it now."
-	mdkir $i3StatusConfigurationPath
-	cp -r i3status/i3status.conf $i3StatusConfigurationPath/i3status.conf
+	mdkir $i3StatusConfigurationPath && cp -r i3status/i3status.conf $i3StatusConfigurationPath/i3status.conf
 	echo "Done"
 fi
