@@ -1,15 +1,14 @@
 #!/bin/bash
 echo "Install base packages"
-sudo -s
 
-apt install mkcert ca-certificates curl gnupg apt-transport-https git -y
+sudo apt install mkcert ca-certificates curl gnupg apt-transport-https git -y
 
 echo "Add PHP repository"
-add-apt-repository ppa:ondrej/php
-apt update
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
 
 echo "Install PHP 8.2 packages"
-apt install \
+sudo apt install \
 	php8.2 \
 	php8.2-fpm \
 	php8.2-mbstring \
@@ -24,7 +23,7 @@ apt install \
 	-y
 
 echo "Install PHP 8.1 packages"
-apt install \
+sudo apt install \
 	php8.1 \
 	php8.1-fpm \
 	php8.1-mbstring \
@@ -39,7 +38,7 @@ apt install \
 
 echo "Install PHP 7.4 packages"
 
-apt install \
+sudo apt install \
 	php7.4 \
 	php7.4-fpm \
 	php7.4-mbstring \
@@ -63,7 +62,7 @@ if [[ "$installDockerChoice" != "${installDockerChoice#[Yy]}" ]]; then
 	for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do apt-get remove $pkg; done
 
 	echo "(2) Add Docker's official GPG Key"
-	install -m 0755 -d /etc/apt/keyrings
+	sudo install -m 0755 -d /etc/apt/keyrings
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 	chmod a+r /etc/apt/keyrings/docker.gpg
 
@@ -74,7 +73,7 @@ if [[ "$installDockerChoice" != "${installDockerChoice#[Yy]}" ]]; then
 	  tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 	echo "(4) Install Docker engine"
-	apt install \
+	sudo apt install \
 	docker-ce \
 	docker-ce-cli \
 	containerd.io \
@@ -82,7 +81,7 @@ if [[ "$installDockerChoice" != "${installDockerChoice#[Yy]}" ]]; then
 	docker-compose-plugin
 
 	echo "(5) Post installation steps"
-	groupadd docker && usermod -aG docker $USER && newgrp docker && docker run hello-world
+	sudo groupadd docker && usermod -aG docker $USER && newgrp docker && docker run hello-world
 
 	echo "(6) Start docker on boot"
 	systemctl enable docker.service
