@@ -7,50 +7,63 @@ echo "Add PHP repository"
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 
-echo "Install PHP 8.2 packages"
-sudo apt install \
-	php8.2 \
-	php8.2-fpm \
-	php8.2-mbstring \
-	php8.2-xml \
-	php8.2-curl \
-	php8.2-gd \
-	php8.2-vips \
-	php8.2-mysql \
-	php8.2-igbinary \
-	php8.2-intl \
-	php8.2-pgsql \
-	-y
+printf "Install PHP 8.2 packages ?"
+read installPhp82Choice
+if [[ "$installPhp82Choice" != "${installPhp82Choice#[Yy]}" ]]; then
+	sudo apt install \
+		php8.2 \
+		php8.2-fpm \
+		php8.2-mbstring \
+		php8.2-xml \
+		php8.2-curl \
+		php8.2-gd \
+		php8.2-vips \
+		php8.2-mysql \
+		php8.2-igbinary \
+		php8.2-intl \
+		php8.2-pgsql \
+		-y
+else
+	echo "Continue"
+fi
 
-echo "Install PHP 8.1 packages"
-sudo apt install \
-	php8.1 \
-	php8.1-fpm \
-	php8.1-mbstring \
-	php8.1-xml \
-	php8.1-curl \
-	php8.1-gd \
-	php8.1-vips \
-	php8.1-mysql \
-	php8.1-igbinary \
-	php8.1-intl \
-	-y
+printf "Install PHP 8.1 packages ?"
+read installPhp81Choice
+if [[ "$installPhp81Choice" != "${installPhp81Choice#[Yy]}" ]]; then
+	sudo apt install \
+		php8.1 \
+		php8.1-fpm \
+		php8.1-mbstring \
+		php8.1-xml \
+		php8.1-curl \
+		php8.1-gd \
+		php8.1-vips \
+		php8.1-mysql \
+		php8.1-igbinary \
+		php8.1-intl \
+		-y
+else 
+	echo "Ćontinue"
+fi
 
-echo "Install PHP 7.4 packages"
-
-sudo apt install \
-	php7.4 \
-	php7.4-fpm \
-	php7.4-mbstring \
-	php7.4-xml \
-	php7.4-curl \
-	php7.4-gd \
-	php7.4-vips \
-	php7.4-mysql \
-	php7.4-igbinary \
-	php7.4-intl \
-	-y
-
+printf "Install PHP 7.4 packages ?"
+read installPhp74Choice
+if [[ "$installPhp74Choice" != "${installPhp74Choice#[Yy]}" ]]; then
+	sudo apt install \
+		php7.4 \
+		php7.4-fpm \
+		php7.4-mbstring \
+		php7.4-xml \
+		php7.4-curl \
+		php7.4-gd \
+		php7.4-vips \
+		php7.4-mysql \
+		php7.4-igbinary \
+		php7.4-intl \
+		-y
+else
+	echo "Continue"
+fi
 
 
 printf "Should we continue with installing docker? (Y/N)"
@@ -87,7 +100,7 @@ if [[ "$installDockerChoice" != "${installDockerChoice#[Yy]}" ]]; then
 	systemctl enable docker.service
 	systemctl enable containerd.service
 else
-	echo "Abort"
+	echo "Continue"
 fi
 
 printf "Do you want to configure git? (Y/N)"
@@ -104,5 +117,5 @@ if [[ "$configureGitChoice" != "${configureGitChoice#[Yy]}" ]]; then
 
 	git config --global init.defaultBranch main
 else
-	echo "Abort"
+	echo "Continue"
 fi
