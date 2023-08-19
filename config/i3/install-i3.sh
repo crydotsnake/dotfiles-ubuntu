@@ -19,7 +19,7 @@ fi
 printf "Do you want too move the i3 configuration?"
 read i3ConfigurationChoice
 if [[ "$i3ConfigurationChoice" != "${i3ConfigurationChoice#[Yy]}" ]]; then
-	sh move-configurations.sh
+	bash move-configurations.sh
 else
 	echo "Abort"
 fi
