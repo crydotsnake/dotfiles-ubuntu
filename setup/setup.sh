@@ -117,5 +117,14 @@ if [[ "$configureGitChoice" != "${configureGitChoice#[Yy]}" ]]; then
 
 	git config --global init.defaultBranch main
 else
+	echo "Continue"
+fi
+
+printf "Would you like too install i3 now? (Y/N)"
+read installi3Configuration
+
+if [[ "$installi3Configuration" != "${installi3Configuration#[Yy]}" ]]; then
+	bash config/i3/install-i3.sh
+else
 	echo "Abort"
 fi
