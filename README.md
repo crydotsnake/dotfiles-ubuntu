@@ -1,6 +1,6 @@
-# i3 Configuration
+# ubuntu-dotfiles
 
-Here you find my configuration files for i3, and i3status.
+In this repository you find my scripts for setting up my ubuntu system. For installing i3, but also install and configure some base packages  i need.
 
 ## Packages i use for i3
 
