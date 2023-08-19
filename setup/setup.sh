@@ -117,5 +117,5 @@ if [[ "$configureGitChoice" != "${configureGitChoice#[Yy]}" ]]; then
 
 	git config --global init.defaultBranch main
 else
-	echo "Continue"
+	echo "Abort"
 fi
