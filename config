@@ -41,7 +41,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -198,17 +198,9 @@ bindsym $mod+BackSpace mode "$mode_system"
 bindsym $mod+fn1 exec 0xffbe +10
 bindsym $mod+fn2 exec 0xffbe -10
 
-# Sreen brightness controls
-bindysm $mod+f1 XF86KbdBrightnessDown exec xbacklight -inc 20 # increase screen brightness
-bindysm $mod+f2 XF86KbdBrightnessUp exec xbacklight -dec 20 # decrease screen brightness
-
-# start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id rofi
-# A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+# Screen brightness controls
+# bindysm $mod+f1 XF86KbdBrightnessDown exec xbacklight -inc 20 # increase screen brightness
+# bindysm $mod+f2 XF86KbdBrightnessUp exec xbacklight -dec 20 # decrease screen brightness
 
 # Run Rofi instead of dmenu
 bindsym $mod+d exec "rofi -modi window,drun,run -show drun -sidebar-mode -terminal termite"
@@ -224,3 +216,17 @@ exec_always --no-startup-id /usr/bin/pasystray
 
 # Run flameshot
 exec_always --no-startup-id /usr/bin/flameshot
+
+# Run JetBrains toolbox
+exec_always --no-startup-id /home/USERNAME/.local/share/applications/jetbrains-toolbox/jetbrains-toolbox
+
+# Run Linux Mint update manager
+exec_always --no-startup-id mintupdate-launcher
+
+# Gaps configuration
+gaps inner 15
+gaps outer 15
+
+# Hide window title bar
+default_border pixel 1
+default_floating_border pixel 1
