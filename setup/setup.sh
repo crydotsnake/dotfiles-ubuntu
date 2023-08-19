@@ -6,6 +6,7 @@ apt install mkcert ca-certificates curl gnupg apt-transport-https git -y
 
 echo "Add PHP repository"
 add-apt-repository ppa:ondrej/php
+apt update
 
 echo "Install PHP 8.2 packages"
 apt install \
