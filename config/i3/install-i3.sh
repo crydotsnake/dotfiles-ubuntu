@@ -1,8 +1,9 @@
 #!/bin/bash
-sudo apt update && apt upgrade
+
+echo "Install custom packages for i3"
 sudo apt install terminator feh arandr pasystray rofi lxappearance -y
 
-printf "Do you want continue with the i3 installation?"
+printf "Do you want continue with the i3 installation? (Y/N)"
 read i3InstallChoice
 
 if [[ "$i3InstallChoice" != "${i3InstallChoice#[Yy]}" ]]; then
@@ -15,7 +16,7 @@ else
 	echo "Continue"
 fi
 
-printf "Do you want too move the i3 configuration?"
+printf "Do you want too move the i3 configuration? (Y/N)"
 read i3ConfigurationChoice
 if [[ "$i3ConfigurationChoice" != "${i3ConfigurationChoice#[Yy]}" ]]; then
 	bash move-configurations.sh
