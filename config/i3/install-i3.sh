@@ -13,7 +13,7 @@ if [[ "$i3InstallChoice" != "${i3InstallChoice#[Yy]}" ]]; then
 	apt update
 	apt install i3 -y
 else
-	echo "Abort"
+	echo "Continue"
 fi
 
 printf "Do you want too move the i3 configuration?"
@@ -21,5 +21,5 @@ read i3ConfigurationChoice
 if [[ "$i3ConfigurationChoice" != "${i3ConfigurationChoice#[Yy]}" ]]; then
 	bash move-configurations.sh
 else
-	echo "Abort"
+	echo "Continue"
 fi
