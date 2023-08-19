@@ -71,24 +71,21 @@ read installDockerChoice
 
 if [[ "$installDockerChoice" != "${installDockerChoice#[Yy]}" ]]; then
 
-	echo "(1) Make sure default docker packages are removed"
-	for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do apt-get remove $pkg; done
-
-	echo "(2) Add Docker's official GPG Key"
+	echo "(1) Add Docker's official GPG Key"
 	sudo install -m 0755 -d /etc/apt/keyrings
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 	sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
-	echo "(3) Set up docker repository"
+	echo "(2) Set up docker repository"
 	echo \
 	  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
 	  "$(. /etc/os-release && echo "$UBUNTU_CODENAME")" stable" | \
 	  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-	echo "(4) update package index"
+	echo "(3) update package index"
 	sudo apt-get update
 	
-	echo "(5) Install Docker engine"
+	echo "(4) Install Docker engine"
 	sudo apt install \
 	docker-ce \
 	docker-ce-cli \
@@ -96,10 +93,10 @@ if [[ "$installDockerChoice" != "${installDockerChoice#[Yy]}" ]]; then
 	docker-buildx-plugin \
 	docker-compose-plugin
 
-	echo "(6) Post installation steps"
+	echo "(5) Post installation steps"
 	sudo groupadd docker && usermod -aG docker $USER && newgrp docker && docker run hello-world
 
-	echo "(7) Start docker on boot"
+	echo "(6) Start docker on boot"
 	systemctl enable docker.service
 	systemctl enable containerd.service
 else
