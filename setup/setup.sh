@@ -64,13 +64,13 @@ if [[ "$installDockerChoice" != "${installDockerChoice#[Yy]}" ]]; then
 	echo "(2) Add Docker's official GPG Key"
 	sudo install -m 0755 -d /etc/apt/keyrings
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-	chmod a+r /etc/apt/keyrings/docker.gpg
+	sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
 	echo "(3) Set up docker repsitory"
 	echo \
 	  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
 	  "$(. /etc/os-release && echo "$UBUNTU_CODENAME")" stable" | \
-	  tee /etc/apt/sources.list.d/docker.list > /dev/null
+	  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 	echo "(4) Install Docker engine"
 	sudo apt install \
