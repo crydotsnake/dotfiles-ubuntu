@@ -73,7 +73,7 @@ if [[ "$installDockerChoice" != "${installDockerChoice#[Yy]}" ]]; then
 
 	echo "(1) Add Docker's official GPG Key"
 	sudo install -m 0755 -d /etc/apt/keyrings
-	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+	sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 	sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
 	echo "(2) Set up docker repository"
