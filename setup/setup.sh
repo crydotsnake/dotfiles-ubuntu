@@ -7,7 +7,7 @@ echo "Add PHP repository"
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 
-printf "Install PHP 8.2 packages ?"
+printf "Install PHP 8.2 packages ? (Y/N)"
 read installPhp82Choice
 if [[ "$installPhp82Choice" != "${installPhp82Choice#[Yy]}" ]]; then
 	sudo apt install \
@@ -27,7 +27,7 @@ else
 	echo "Continue"
 fi
 
-printf "Install PHP 8.1 packages ?"
+printf "Install PHP 8.1 packages ? (Y/N)"
 read installPhp81Choice
 if [[ "$installPhp81Choice" != "${installPhp81Choice#[Yy]}" ]]; then
 	sudo apt install \
@@ -46,7 +46,7 @@ else
 	echo "Ćontinue"
 fi
 
-printf "Install PHP 7.4 packages ?"
+printf "Install PHP 7.4 packages ? (Y/N)"
 read installPhp74Choice
 if [[ "$installPhp74Choice" != "${installPhp74Choice#[Yy]}" ]]; then
 	sudo apt install \
@@ -79,13 +79,16 @@ if [[ "$installDockerChoice" != "${installDockerChoice#[Yy]}" ]]; then
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 	sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
-	echo "(3) Set up docker repsitory"
+	echo "(3) Set up docker repository"
 	echo \
 	  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
 	  "$(. /etc/os-release && echo "$UBUNTU_CODENAME")" stable" | \
 	  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-	echo "(4) Install Docker engine"
+	echo "(4) update package index"
+	sudo apt-get update
+	
+	echo "(5) Install Docker engine"
 	sudo apt install \
 	docker-ce \
 	docker-ce-cli \
@@ -93,10 +96,10 @@ if [[ "$installDockerChoice" != "${installDockerChoice#[Yy]}" ]]; then
 	docker-buildx-plugin \
 	docker-compose-plugin
 
-	echo "(5) Post installation steps"
+	echo "(6) Post installation steps"
 	sudo groupadd docker && usermod -aG docker $USER && newgrp docker && docker run hello-world
 
-	echo "(6) Start docker on boot"
+	echo "(7) Start docker on boot"
 	systemctl enable docker.service
 	systemctl enable containerd.service
 else
