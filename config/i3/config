@@ -141,7 +141,7 @@ bindsym $mod+r mode "resize"
 
 
 bar {
-        status_command i3status -c /home/simon/.config/i3/i3status/i3status.conf
+        status_command i3status -c /$HOME/.config/i3/i3status/i3status.conf
         tray_output HDMI-A-0 # outputs the tray icons on my primary monitore
         strip_workspace_numbers yes
         separator_symbol "■"
@@ -184,10 +184,10 @@ bindsym $mod+d exec "rofi -modi window,drun,run -show drun -sidebar-mode -termin
 ## Autostart
 
 # Background image
-exec_always feh --bg-fill --no-startup-id /home/simon/Bilder/wallpaper/ghibli.jpg
+exec_always feh --bg-fill --no-startup-id /$HOME/Bilder/wallpaper/ghibli.jpg
 
 # Monitor layout
-exec_always --no-startup-id /home/simon/.screenlayout/mein_layout.sh
+exec_always --no-startup-id /$HOME/.screenlayout/mein_layout.sh
 
 # Pasystray
 exec_always --no-startup-id /usr/bin/pasystray
@@ -196,7 +196,7 @@ exec_always --no-startup-id /usr/bin/pasystray
 exec_always --no-startup-id /usr/bin/flameshot
 
 # JetBrains toolbox
-exec_always --no-startup-id /home/simon/.local/share/applications/jetbrains-toolbox-2.0.0.16559/jetbrains-toolbox
+exec_always --no-startup-id /$HOME/.local/share/applications/jetbrains-toolbox-2.0.0.16559/jetbrains-toolbox
 
 # Linux Mint update manager
 exec_always --no-startup-id mintupdate-launcher
