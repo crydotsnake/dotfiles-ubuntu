@@ -19,6 +19,6 @@ if [[ -d "$i3StatusConfigurationPath" ]]; then
 	echo "Done"
 else 
 	echo "The Path $i3StatusConfigurationPath doesent exist. Will create it now."
-	mdkir $i3StatusConfigurationPath && cp -r i3status/i3status.conf $i3StatusConfigurationPath/i3status.conf
+	mkdir $i3StatusConfigurationPath && cp -r i3status/i3status.conf $i3StatusConfigurationPath/i3status.conf
 	echo "Done"
 fi
