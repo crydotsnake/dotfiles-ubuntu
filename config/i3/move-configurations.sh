@@ -1,7 +1,7 @@
 #!/bin/bash
 
-i3ConfigurationPath="/$HOME/.config/i3"
-i3StatusConfigurationPath="/$HOME/.config/i3/i3status"
+i3ConfigurationPath="$HOME/.config/i3"
+i3StatusConfigurationPath="$HOME/.config/i3/i3status"
 
 if [[ -d "$i3ConfigurationPath" ]]; then
 	echo "I will move the i3 configuration too the needed location."
